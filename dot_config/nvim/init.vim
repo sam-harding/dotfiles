@@ -47,3 +47,6 @@ augroup END
 " Pretty Colours!
 colorscheme nord " Nord colourscheme for a nice chilly feel
 
+" Mappings
+nmap <C-P> :FZF<CR>
+nmap <C-e> :NERDTreeToggle<CR>
