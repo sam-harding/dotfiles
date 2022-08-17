@@ -19,16 +19,22 @@ set number                  " add line numbers
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'arcticicestudio/nord-vim'     " Nord Colourscheme Plugin
+Plug 'dracula/vim', { 'as': 'dracula' } " Dracula Theme
 Plug 'preservim/nerdtree'           " NERDTree File Tree
+Plug 'vim-airline/vim-airline'      " Fancy display at bottom of screen
+Plug 'lukas-reineke/indent-blankline.nvim' " Show indentations
 
 " Better syntax highlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'lepture/vim-jinja'
+Plug 'hashivim/vim-terraform'
 
 " Code Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Fuzzy Find
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " Initialise plugins
 call plug#end()
@@ -45,11 +51,22 @@ augroup neovim_terminal
 augroup END
 
 " Pretty Colours!
-colorscheme nord " Nord colourscheme for a nice chilly feel
+colorscheme dracula " Best theme dracula
+set termguicolors
 
 " Mappings
 nmap <C-P> :FZF<CR>
 nmap <C-e> :NERDTreeToggle<CR>
+
+" Indent Lines
+let g:indent_blankline_show_first_indent_level = v:false
+let g:indent_blankline_show_current_context = v:true
+let g:indent_blankline_use_treesitter = v:true
+let g:indent_blankline_space_char_blankline = ' '
+
+set list
+set listchars+=trail:·
+set listchars+=lead:·
 
 " COC Mappings
 "
